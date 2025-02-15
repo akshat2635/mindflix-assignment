@@ -1,3 +1,4 @@
+#Importing modules
 from flask import Flask, request, jsonify,send_from_directory
 from flask_cors import CORS
 import chromadb
@@ -6,7 +7,9 @@ from sentence_transformers import SentenceTransformer
 from transformers import CLIPProcessor, CLIPModel
 import numpy as np
 
+####################################################################################################################################
 
+#Model Class
 class ImageSearch:
     def __init__(self):
         self._load_models()
@@ -45,12 +48,15 @@ class ImageSearch:
         except Exception as e:
             return {"error": str(e)}
 
+####################################################################################################################################
 
+#Instantiating model and Flask app
 image_search = ImageSearch()
 
 app = Flask(__name__)
 CORS(app)
 
+#Search route
 @app.route("/search", methods=["POST"])
 def search_endpoint():
     try:
@@ -76,8 +82,8 @@ def search_endpoint():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-from flask import send_from_directory
 
+#Flask serving image directly
 @app.route("/images/<filename>")
 def serve_image(filename):
     return send_from_directory("flickr8k/Flicker8k_Dataset", filename)
