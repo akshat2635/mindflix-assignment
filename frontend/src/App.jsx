@@ -21,6 +21,11 @@ function App() {
       reader.readAsDataURL(file);
     }
   };
+  const handleRemoveImage = () => {
+    setImage(null);
+    setPreviewUrl('');
+    document.getElementById('fileInput').value = ''; // Reset file input
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -96,8 +101,8 @@ function App() {
                           className="mx-auto h-32 w-auto object-contain mb-4"
                         />
                         <button
-                          onClick={() => setPreviewUrl(null)}
-                          className="mt-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-500 transition"
+                          onClick={handleRemoveImage}
+                          className="my-3 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-500 transition"
                         >
                           Remove Image
                         </button>
@@ -109,6 +114,7 @@ function App() {
                       <label className="relative cursor-pointer rounded-md font-medium text-blue-400 hover:text-blue-300 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                         <span>Upload a file</span>
                         <input
+                          id="fileInput"
                           type="file"
                           className="sr-only"
                           onChange={handleImageChange}
