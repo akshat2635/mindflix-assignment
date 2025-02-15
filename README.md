@@ -25,7 +25,8 @@ To run the app, type the following command in terminal at working directory. it 
 ```bash
   npm run start
 ```
-
+## Website Preview
+![Preview](preview.png)
 
 ## Libraries
 
