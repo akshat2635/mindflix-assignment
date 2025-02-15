@@ -16,8 +16,10 @@ def download_file(url, save_path):
                 if chunk:
                     f.write(chunk)
                     pbar.update(len(chunk))
+        return 1
     else:
         print(f"{os.path.basename(save_path)} already exists. Skipping download.")
+        return 0
 
 def extract_zip(zip_path, extract_to):
     """Extracts a ZIP file only if the extracted directory does not already exist."""
@@ -41,9 +43,11 @@ image_zip_path = "flickr8k/Flickr8k_Dataset.zip"
 caption_zip_path = "flickr8k/Flickr8k_text.zip"
 
 # Download and extract images
-download_file(image_url, image_zip_path)
-extract_zip(image_zip_path, "flickr8k")
+res=download_file(image_url, image_zip_path)
+if res:
+    extract_zip(image_zip_path, "flickr8k")
 
 # Download and extract captions
-download_file(caption_url, caption_zip_path)
-extract_zip(caption_zip_path, "flickr8k")
+res=download_file(caption_url, caption_zip_path)
+if res:
+    extract_zip(caption_zip_path, "flickr8k")

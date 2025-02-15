@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "download":"cd backend && call venv\\Scripts\\activate && python download_dataset.py",
     "frontend": "cd frontend && npm run dev",
     "backend": "cd backend && call venv\\Scripts\\activate && python app.py"
   },

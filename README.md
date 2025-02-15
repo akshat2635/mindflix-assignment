@@ -1,5 +1,5 @@
 # Image search RAG Application
-This application gives user option to search for similar imagess using either just image or just caption or both.
+This application gives user option to search for similar images using either just image or just caption or both.
 
 ## Installation & Run
 1. Clone this repository using git clone
@@ -16,7 +16,12 @@ Navigate to project directory. After that open the terminal and run the followin
   npm install
 ```
 
-To run the app, type the following command in terminal at working directory. it will run both api and website
+To download the dataset needed for api to send image data run following command in terminal at working directory.
+```bash
+  npm run download
+```
+
+To run the app, type the following command in terminal at working directory. it will run both backend and frontend
 ```bash
   npm run start
 ```
