@@ -4,10 +4,12 @@ This application gives user option to search for similar images using either jus
 ## Installation & Run
 1. Clone this repository using git clone
 
-Navigate to project directory. After that open the terminal and run the following commands in different terminals. This will install all the modules needed to run this app. 
+Navigate to project directory. After that open the terminal and run the following commands in different terminals. This will install all the modules needed to run this app. (change method to activate virtual env for MAC/Linux) 
 
 ```bash
   cd backend
+  python -m venv venv
+  venv\Scripts\activate
   pip install -r requirements.txt
 ```
 
